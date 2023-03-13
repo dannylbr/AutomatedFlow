@@ -40,7 +40,8 @@ namespace AutomatedFlow.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Navigation", "A short summary of the feature", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Navigation", "As a user, \r\nI want to be able to navigate to different pages on the \r\nIntegræ So" +
+                    "lutions website so that \r\nI can access the information and features I need.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -77,9 +78,9 @@ namespace AutomatedFlow.Features
         
         public virtual void FeatureBackground()
         {
-#line 4
+#line 7
 #line hidden
-#line 5
+#line 8
  testRunner.Given("I navigate to Integræ Solutions homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
@@ -99,7 +100,7 @@ namespace AutomatedFlow.Features
                     "Homepage"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Visit Homepage", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 8
+#line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -109,29 +110,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 7
 this.FeatureBackground();
 #line hidden
-#line 9
+#line 12
  testRunner.Then("Elegant text is shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Access Projects from menu")]
+        [Xunit.SkippableFactAttribute(DisplayName="Access Projects page from the menu")]
         [Xunit.TraitAttribute("FeatureTitle", "Navigation")]
-        [Xunit.TraitAttribute("Description", "Access Projects from menu")]
+        [Xunit.TraitAttribute("Description", "Access Projects page from the menu")]
         [Xunit.TraitAttribute("Category", "Homepage")]
         [Xunit.TraitAttribute("Category", "Projects")]
-        public void AccessProjectsFromMenu()
+        public void AccessProjectsPageFromTheMenu()
         {
             string[] tagsOfScenario = new string[] {
                     "Homepage",
                     "Projects"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Access Projects from menu", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 12
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Access Projects page from the menu", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -141,32 +142,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 7
 this.FeatureBackground();
 #line hidden
-#line 13
+#line 16
  testRunner.When("Click on Projects link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 14
+#line 17
  testRunner.Then("Projects page is shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Access About from menu")]
+        [Xunit.SkippableFactAttribute(DisplayName="Access About page from the menu")]
         [Xunit.TraitAttribute("FeatureTitle", "Navigation")]
-        [Xunit.TraitAttribute("Description", "Access About from menu")]
+        [Xunit.TraitAttribute("Description", "Access About page from the menu")]
         [Xunit.TraitAttribute("Category", "Homepage")]
         [Xunit.TraitAttribute("Category", "About")]
-        public void AccessAboutFromMenu()
+        public void AccessAboutPageFromTheMenu()
         {
             string[] tagsOfScenario = new string[] {
                     "Homepage",
                     "About"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Access About from menu", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 17
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Access About page from the menu", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 20
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -176,32 +177,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 7
 this.FeatureBackground();
 #line hidden
-#line 18
+#line 21
  testRunner.When("Click on About link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 19
+#line 22
  testRunner.Then("About page is shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Access Comments from menu")]
+        [Xunit.SkippableFactAttribute(DisplayName="Access Comments page from the menu")]
         [Xunit.TraitAttribute("FeatureTitle", "Navigation")]
-        [Xunit.TraitAttribute("Description", "Access Comments from menu")]
+        [Xunit.TraitAttribute("Description", "Access Comments page from the menu")]
         [Xunit.TraitAttribute("Category", "Homepage")]
         [Xunit.TraitAttribute("Category", "Comments")]
-        public void AccessCommentsFromMenu()
+        public void AccessCommentsPageFromTheMenu()
         {
             string[] tagsOfScenario = new string[] {
                     "Homepage",
                     "Comments"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Access Comments from menu", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 22
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Access Comments page from the menu", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 25
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -211,32 +212,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 7
 this.FeatureBackground();
 #line hidden
-#line 23
+#line 26
  testRunner.When("Click on Comments link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 24
+#line 27
  testRunner.Then("Comments page is shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Access Donate from menu")]
+        [Xunit.SkippableFactAttribute(DisplayName="Access Donate page from the menu")]
         [Xunit.TraitAttribute("FeatureTitle", "Navigation")]
-        [Xunit.TraitAttribute("Description", "Access Donate from menu")]
+        [Xunit.TraitAttribute("Description", "Access Donate page from the menu")]
         [Xunit.TraitAttribute("Category", "Homepage")]
         [Xunit.TraitAttribute("Category", "Donate")]
-        public void AccessDonateFromMenu()
+        public void AccessDonatePageFromTheMenu()
         {
             string[] tagsOfScenario = new string[] {
                     "Homepage",
                     "Donate"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Access Donate from menu", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 27
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Access Donate page from the menu", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 30
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -246,13 +247,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 7
 this.FeatureBackground();
 #line hidden
-#line 28
+#line 31
  testRunner.When("Click on Donate link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 29
+#line 32
  testRunner.Then("Donate page is shown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
