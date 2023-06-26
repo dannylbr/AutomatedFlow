@@ -19,7 +19,7 @@ namespace AutomatedFlow.PageObjects
             driver = driverFixture.Driver;
         }
 
-        private IWebElement commentsTitle => driver.FindElement(By.XPath("//*[@id=\"h.xjovd84nhlwo\"]/span/strong"));
+        private IWebElement commentsTitle => driver.FindElement(By.Id("h.xjovd84nhlwo"));
 
         public bool TitleIsDisplayed() => commentsTitle.Displayed;
     }
