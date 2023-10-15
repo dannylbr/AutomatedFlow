@@ -1,13 +1,9 @@
-﻿using AutoFixture;
-using AutomatedFlow.Drivers;
+﻿using AutomatedFlow.Drivers;
+using AutomatedFlow.Helpers;
 using AutomatedFlow.PageObjects;
 using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using Xunit;
 
@@ -22,6 +18,7 @@ namespace AutomatedFlow.Steps
         private readonly AboutPageObject _about;
         private readonly CommentsPageObject _comments;
         private readonly DonatePageObject _donate;
+
         public Homepage(IDriverFixture driverFixture
             , HomePageObject home
             , ProjectsPageObject projects
@@ -41,6 +38,11 @@ namespace AutomatedFlow.Steps
         public void GivenINavigateToIntegraeSolutionsHomepage()
         {
             _driver.Navigate().GoToUrl("https://sites.google.com/view/integraesol/");
+            var perf = _driver.GetPerformanceEntries();
+            if (null != perf && perf.Any())
+            {
+                perf.ForEach(x => Console.WriteLine(x));
+            }
         }
 
         [Then(@"Elegant text is shown")]
