@@ -1,0 +1,22 @@
+name: .NET 6.0
+on:
+  push:
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: AutomatedFlow Test Suite
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - uses:  ./
+      with:
+        test-assembly-path: AutomatedFlow/bin/Release/net6.0
+        test-assembly-dll: AutomatedFlow.dll
+        output-html: AutomatedFlowTestResults.html
+        framework: net6.0
