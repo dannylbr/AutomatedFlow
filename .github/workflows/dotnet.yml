@@ -1,36 +1,22 @@
+name: .NET 6.0
 on:
   push:
-    branches:
-    - main
-    
-steps:
- - name: Run SpecFlow Tests
-  # You may pin to the exact commit or the version.
-  # uses: cryptic-wizard/run-specflow-tests@b41cc8823b50ca41180c49079c2cb47f13940124
- - uses: cryptic-wizard/run-specflow-tests@v1.3.2
-   with:
-    # Path of the working directory for build assemblies (example: MySpecflowProject/bin/Debug/netcoreapp3.1)
-    test-assembly-path: # optional, default is null
-    # Relative path of <MySpecflowProject.dll> (example: MySpecflowProject/bin/Debug/netcoreapp3.1/MySpecflowProject.dll or MySpecflowProject.dll if using test-assembly-path)
-    test-assembly-dll: 
-    # Relative path of <MySpecflowProjectTestExecution(s).json> (example: MySpecflowProject/bin/Debug/netcoreapp3.1/TestExecution.json or TestExecution.json if using test-assembly-path)
-    test-execution-json: # optional, default is TestExecution.json
-    # Name of Specflow LivingDoc output file (must end with .html) (example: MyTestResults.html)
-    output-html: # optional, default is LivingDoc.html
-    # Framework version of dotnet (example: netcoreapp3.1, net5.0)
-    framework: # optional, default is null
-    # Build configuration (example: Debug)
-    configuration: # optional, default is Release
-    # Verbosity of the Dotnet App Build (default = minimal)
-    build-verbosity: # optional, default is minimal
-    # Verbosity of the SpecFlow Test Execution (default = normal)
-    test-verbosity: # optional, default is normal
-    # Set to true to disable dotnet build and dotnet restore
-    no-build: # optional, default is false
-    # Dotnet test logger to run in addition to Specflow Test Logger (example: trx)
-    logger: # optional, default is null
-    # Dotnet test log file name; required if logger is defined (example: MyTestResults.trx)
-    logger-file-name: # optional, default is null
-    # Set to false to disable uploading <LivingDoc.html> artifact automatically
-    upload-artifact: # optional, default is true
-          
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: AutomatedFlow testing IntegraeSol website
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - uses:  ./
+      with:
+        test-assembly-path: AutomatedFlow/bin/Release/net6.0
+        test-assembly-dll: AutomatedFlow.dll
+        output-html: IntegraeSolWebsiteResults.html
+        framework: net6.0
