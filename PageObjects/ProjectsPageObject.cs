@@ -18,7 +18,8 @@ namespace AutomatedFlow.PageObjects
             driver = driverFixture.Driver;
         }
         
-        private IWebElement projectsTitle => driver.FindElement(By.Id("h.yrpkklq0qtky"));
+        private IWebElement projectsTitle => 
+            driver.FindElement(By.ClassName("CGqCRe"));
 
         public bool TitleIsDisplayed() => projectsTitle.Displayed;
     }

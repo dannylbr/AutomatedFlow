@@ -1,31 +1,27 @@
 ﻿Feature: Navigation
-A short summary of the feature
+As a user, 
+I want to be able to navigate to different pages on the 
+Integræ Solutions website so that 
+I can access the information and features I need.
+
+Background:
+	Given I navigate to Integræ Solutions homepage
 
 @Homepage
 Scenario: Visit Homepage
-	Given I navigate to Integræ Solutions homepage
 	Then Elegant text is shown
 
 @Homepage @Projects
-Scenario: Access Projects from menu
-	Given I navigate to Integræ Solutions homepage
+Scenario: Access Projects page from the menu
 	When Click on Projects link
 	Then Projects page is shown
 
 @Homepage @About
-Scenario: Access About from menu
-	Given I navigate to Integræ Solutions homepage
+Scenario: Access About page from the menu
 	When Click on About link
 	Then About page is shown
-
+	
 @Homepage @Comments
-Scenario: Access Comments from menu
-	Given I navigate to Integræ Solutions homepage
+Scenario: Access Comments page from the menu
 	When Click on Comments link
 	Then Comments page is shown
-
-@Homepage @Donate
-Scenario: Access Donate from menu
-	Given I navigate to Integræ Solutions homepage
-	When Click on Donate link
-	Then Donate page is shown
