@@ -1,8 +1,14 @@
-            - name: Run SpecFlow Tests
+on:
+  push:
+    branches:
+    - main
+    
+steps:
+ - name: Run SpecFlow Tests
   # You may pin to the exact commit or the version.
   # uses: cryptic-wizard/run-specflow-tests@b41cc8823b50ca41180c49079c2cb47f13940124
-  uses: cryptic-wizard/run-specflow-tests@v1.3.2
-  with:
+ - uses: cryptic-wizard/run-specflow-tests@v1.3.2
+   with:
     # Path of the working directory for build assemblies (example: MySpecflowProject/bin/Debug/netcoreapp3.1)
     test-assembly-path: # optional, default is null
     # Relative path of <MySpecflowProject.dll> (example: MySpecflowProject/bin/Debug/netcoreapp3.1/MySpecflowProject.dll or MySpecflowProject.dll if using test-assembly-path)
