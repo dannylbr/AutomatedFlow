@@ -38,11 +38,18 @@ namespace AutomatedFlow.Steps
         public void GivenINavigateToIntegraeSolutionsHomepage()
         {
             _driver.Navigate().GoToUrl("https://sites.google.com/view/integraesol/");
-            var perf = _driver.GetPerformanceEntries();
-            if (null != perf && perf.Any())
+            try
             {
-                perf.ForEach(x => Console.WriteLine(x));
+                var perf = _driver.GetPerformanceEntries();
+                if (null != perf && perf.Any())
+                {
+                    perf.ForEach(x => Console.WriteLine(x));
+                }
             }
+            catch
+            {
+                // no action
+            } 
         }
 
         [Then(@"Elegant text is shown")]
