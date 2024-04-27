@@ -2,6 +2,7 @@
 using AutomatedFlow.Helpers;
 using AutomatedFlow.PageObjects;
 using OpenQA.Selenium;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using TechTalk.SpecFlow;
@@ -9,6 +10,11 @@ using Xunit;
 
 namespace AutomatedFlow.Steps
 {
+    public static class StepsExtensions
+    {
+
+    }
+
     [Binding]
     public sealed class Homepage
     {
@@ -32,69 +38,33 @@ namespace AutomatedFlow.Steps
         }
 
         [Given(@"I navigate to Integræ Solutions homepage")]
-        public void GivenINavigateToIntegraeSolutionsHomepage()
-        {
-            _driver.Navigate().GoToUrl("https://sites.google.com/view/integraesol/");
-            try
-            {
-                var perf = _driver.GetPerformanceEntries();
-                if (null != perf && perf.Any())
-                {
-                    perf.ForEach(x => Debug.WriteLine(x));
-                }
-            }
-            catch
-            {
-                // no action
-            } 
-        }
+        public void GivenINavigateToIntegraeSolutionsHomepage() => _driver.Navigate()
+            .GoToUrl("https://sites.google.com/view/integraesol/");
 
         [Then(@"Elegant text is shown")]
-        public void ThenElegantTextIsShown()
-        {
-            Assert.True(_home.ElegantTextIsDisplayed(), "Elegant text is not shown");
-        }
+        public void ThenElegantTextIsShown() => Assert.True(_home.Act(Id.Elegant), "Elegant text is not shown");
 
         [When(@"Click on Projects link")]
-        public void WhenClickOnProjectsLink()
-        {
-            _home.ClickOnProjects();
-        }
+        public void WhenClickOnProjectsLink() => _home.Act(Id.Projects);
 
         [Then(@"Projects page is shown")]
-        public void ThenProjectsPageIsShown()
-        {
-            _projects.TitleIsDisplayed();
-        }
+        public void ThenProjectsPageIsShown() => Assert.True(_projects.TitleIsDisplayed(),
+            "The page does not have Projects title");
 
         [When(@"Click on About link")]
-        public void WhenClickOnAboutLink()
-        {
-            _home.ClickOnAbout();
-        }
+        public void WhenClickOnAboutLink() => _home.Act(Id.About);
 
         [Then(@"About page is shown")]
-        public void ThenAboutPageIsShown()
-        {
-            _about.TitleIsDisplayed();
-        }
+        public void ThenAboutPageIsShown() => _about.TitleIsDisplayed();
 
         [When(@"Click on Comments link")]
-        public void WhenClickOnCommentsLink()
-        {
-            _home.ClickOnComments();
-        }
+        public void WhenClickOnCommentsLink() => _home.Act(Id.Comments);
 
         [Then(@"Comments page is shown")]
-        public void ThenCommentsPageIsShown()
-        {
-            _comments.TitleIsDisplayed();
-        }
+        public void ThenCommentsPageIsShown() => _comments.TitleIsDisplayed();
 
-        [When(@"Click on Donate link")]
-        public void WhenClickOnDonateLink()
-        {
-            _home.ClickOnDonate();
-        }
+        [Then(@"I click in all the links and they succeed")]
+        public void ThenIClickInAllTheLinksAndTheySucceed() =>_home.Act(Id.FirstLink);
+
     }
 }

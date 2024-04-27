@@ -25,3 +25,6 @@ Scenario: Access About page from the menu
 Scenario: Access Comments page from the menu
 	When Click on Comments link
 	Then Comments page is shown
+
+Scenario: Access all links in the body
+	Then I click in all the links and they succeed
