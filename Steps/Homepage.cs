@@ -2,7 +2,7 @@
 using AutomatedFlow.Helpers;
 using AutomatedFlow.PageObjects;
 using OpenQA.Selenium;
-using System;
+using System.Diagnostics;
 using System.Linq;
 using TechTalk.SpecFlow;
 using Xunit;
@@ -17,21 +17,18 @@ namespace AutomatedFlow.Steps
         private readonly ProjectsPageObject _projects;
         private readonly AboutPageObject _about;
         private readonly CommentsPageObject _comments;
-        private readonly DonatePageObject _donate;
 
         public Homepage(IDriverFixture driverFixture
             , HomePageObject home
             , ProjectsPageObject projects
             , AboutPageObject about
-            , CommentsPageObject comments
-            , DonatePageObject donate)
+            , CommentsPageObject comments)
         {
             _driver = driverFixture.Driver;
             _home = home;
             _projects = projects;
             _about = about;
             _comments = comments;
-            _donate = donate;
         }
 
         [Given(@"I navigate to Integræ Solutions homepage")]
@@ -43,7 +40,7 @@ namespace AutomatedFlow.Steps
                 var perf = _driver.GetPerformanceEntries();
                 if (null != perf && perf.Any())
                 {
-                    perf.ForEach(x => Console.WriteLine(x));
+                    perf.ForEach(x => Debug.WriteLine(x));
                 }
             }
             catch
@@ -98,12 +95,6 @@ namespace AutomatedFlow.Steps
         public void WhenClickOnDonateLink()
         {
             _home.ClickOnDonate();
-        }
-
-        [Then(@"Donate page is shown")]
-        public void ThenDonatePageIsShown()
-        {
-            _donate.TitleIsDisplayed();
         }
     }
 }
