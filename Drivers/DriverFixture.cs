@@ -35,7 +35,8 @@ namespace AutomatedFlow.Drivers
             options.AddArguments("--test-type"
                 , "--start-maximized"
                 , "--no-sandbox"
-                , "--ignore-certificate-errors"); 
+                , "--ignore-certificate-errors"
+                , "--headless"); 
             return new ChromeDriver(options);
         }
 
