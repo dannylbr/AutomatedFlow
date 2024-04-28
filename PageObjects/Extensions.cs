@@ -12,6 +12,7 @@ namespace AutomatedFlow
         /// <param name="id">Xpath address</param>
         /// <returns></returns>
         public static IWebElement GetByXpath(this IWebDriver driver, string id) => driver.FindElement(By.XPath(id));
+        public static IWebElement GetByClass(this IWebDriver driver, string id) => driver.FindElement(By.ClassName(id));
         public static bool HasClicked(this IWebElement element)
         {
             try

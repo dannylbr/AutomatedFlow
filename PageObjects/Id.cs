@@ -6,7 +6,8 @@
         Projects,
         About,
         Comments,
-        FirstLink
+        FirstLink,
+        Title
     }
 
 }

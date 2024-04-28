@@ -19,7 +19,8 @@ namespace AutomatedFlow.PageObjects
             Id.About => driver.GetByXpath("//*[@id=\"WDxLfe\"]/ul/li[3]/div[1]/div/a"),
             Id.Comments => driver.GetByXpath("//*[@id=\"WDxLfe\"]/ul/li[4]/div[1]/div/a"),
             Id.FirstLink => driver.GetByXpath("//p/a/span"),
-           _ => throw new NotImplementedException()
+            Id.Title => driver.GetByClass("CGqCRe"),
+            _ => throw new NotImplementedException()
         };
 
         public bool Act(Id id) => id switch
@@ -29,6 +30,7 @@ namespace AutomatedFlow.PageObjects
             Id.About => Get(Id.About).HasClicked(),
             Id.Comments => Get(Id.Comments).HasClicked(),
             Id.FirstLink => Get(Id.FirstLink).HasClicked(),
+            Id.Title => Get(Id.Title).Displayed,
             _ => throw new NotImplementedException()
         };
     }

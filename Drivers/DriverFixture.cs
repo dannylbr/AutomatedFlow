@@ -28,6 +28,7 @@ namespace AutomatedFlow.Drivers
         }
 
         public IWebDriver Driver => _webDriver;
+
         private IWebDriver GetWebDriver()
         {
             new DriverManager().SetUpDriver(new ChromeConfig());
@@ -55,7 +56,7 @@ namespace AutomatedFlow.Drivers
                     return new ChromeOptions();
                 case "firefox":
                     return new FirefoxOptions();
-                case "microsoftedge":
+                case "msedge":
                     return new EdgeOptions();
                 case "safari":
                     return new SafariOptions();

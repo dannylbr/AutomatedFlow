@@ -14,14 +14,6 @@ namespace AutomatedFlow.PageObjects
     {
         private readonly IWebDriver driver;
 
-        public AboutPageObject(IDriverFixture driverFixture)
-        {
-            driver = driverFixture.Driver;
-        }
-
-        private IWebElement aboutTitle 
-            => driver.FindElement(By.ClassName("CGqCRe"));
-
-        public bool TitleIsDisplayed() => aboutTitle.Displayed;
+        public AboutPageObject(IDriverFixture driverFixture) => driver = driverFixture.Driver;
     }
 }
