@@ -1,4 +1,4 @@
-﻿namespace AutomatedFlow
+﻿namespace AutomatedFlow.Helpers
 {
     public enum Id
     {

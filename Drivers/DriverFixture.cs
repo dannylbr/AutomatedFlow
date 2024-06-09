@@ -22,10 +22,7 @@ namespace AutomatedFlow.Drivers
     {
         private readonly IWebDriver _webDriver;
 
-        public DriverFixture()
-        {
-            _webDriver = GetWebDriver();
-        }
+        public DriverFixture() => _webDriver = GetWebDriver();
 
         public IWebDriver Driver => _webDriver;
 

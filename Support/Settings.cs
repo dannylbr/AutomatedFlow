@@ -8,6 +8,6 @@ namespace AutomatedFlow.Support
 {
     public class Settings
     {
-        public Uri ApplicationUrl { get; set; }
+        public Uri? ApplicationUrl { get; set; }
     }
 }
