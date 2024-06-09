@@ -20,5 +20,16 @@ namespace AutomatedFlow.PageObjects
             Id.Title => FindElementSafe(By.ClassName("CGqCRe")),
             _ => Maybe<IWebElement>.None()
         };
+
+        public override Maybe<bool> PerformAction(IWebElement element, Id id) => id switch
+        {
+            Id.Elegant => element.Displayed.ToMaybe(),
+            Id.Projects => element.ClickSafe(),
+            Id.About => element.ClickSafe(),
+            Id.Comments => element.ClickSafe(),
+            Id.FirstLink => element.ClickSafe(),
+            Id.Title => element.Displayed.ToMaybe(),
+            _ => Maybe<bool>.None()
+        };
     }
 }

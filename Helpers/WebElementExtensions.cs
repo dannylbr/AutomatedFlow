@@ -8,17 +8,6 @@ namespace AutomatedFlow.Helpers
     {
         public static Maybe<IWebElement> ToMaybe(this IWebElement element) => element != null ? Maybe<IWebElement>.Some(element) : Maybe<IWebElement>.None();
 
-        public static Maybe<bool> PerformAction(this IWebElement element, Id id) => id switch
-        {
-            Id.Elegant => element.Displayed.ToMaybe(),
-            Id.Projects => element.ClickSafe(),
-            Id.About => element.ClickSafe(),
-            Id.Comments => element.ClickSafe(),
-            Id.FirstLink => element.ClickSafe(),
-            Id.Title => element.Displayed.ToMaybe(),
-            _ => Maybe<bool>.None()
-        };
-
         public static Maybe<bool> ClickSafe(this IWebElement element)
         {
             try

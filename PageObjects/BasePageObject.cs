@@ -1,4 +1,5 @@
-﻿using AutomatedFlow.Helpers;
+﻿using AngleSharp.Dom;
+using AutomatedFlow.Helpers;
 using OpenQA.Selenium;
 using System;
 
@@ -24,6 +25,10 @@ namespace AutomatedFlow.PageObjects
 
         public abstract Maybe<IWebElement> Get(Id id);
 
-        public bool Act(Id id) => Get(id).Bind(element => element.PerformAction(id)).GetValueOrDefault(false);
+        public bool Act(Id id) => Get(id).Bind(element => PerformAction(element, id)).GetValueOrDefault(false);
+
+        public abstract Maybe<bool> PerformAction(IWebElement element, Id id);
     }
+
+
 }
