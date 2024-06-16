@@ -2,6 +2,8 @@
 using AutomatedFlow.Helpers;
 using AutomatedFlow.PageObjects;
 using OpenQA.Selenium;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 using Xunit;
 
@@ -18,7 +20,7 @@ namespace AutomatedFlow.Steps
             _driver = driverFixture.Driver;
             _home = home;
         }
-
+        
         [Given(@"I navigate to Integræ Solutions homepage")]
         public void GivenINavigateToIntegraeSolutionsHomepage() => _driver.Navigate().GoToUrl("https://sites.google.com/view/integraesol/");
 

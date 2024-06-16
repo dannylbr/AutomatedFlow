@@ -7,15 +7,15 @@ namespace AutomatedFlow.PageObjects
 {
     public abstract class BasePageObject
     {
-        protected readonly IWebDriver driver;
+        protected readonly IWebDriver _driver;
 
-        protected BasePageObject(IWebDriver driver) => this.driver = driver ?? throw new ArgumentNullException(nameof(driver));
+        protected BasePageObject(IWebDriver driver) => _driver = driver;
 
         protected Maybe<IWebElement> FindElementSafe(By by)
         {
             try
             {
-                return driver.FindElement(by).ToMaybe();
+                return _driver.FindElement(by).ToMaybe();
             }
             catch (NoSuchElementException)
             {
@@ -25,9 +25,9 @@ namespace AutomatedFlow.PageObjects
 
         public abstract Maybe<IWebElement> Get(Id id);
 
-        public bool Act(Id id) => Get(id).Bind(element => PerformAction(element, id)).GetValueOrDefault(false);
+        public bool Act(Id id) => Get(id).Bind(element => Action(element, id)).GetValueOrDefault(false);
 
-        public abstract Maybe<bool> PerformAction(IWebElement element, Id id);
+        public abstract Maybe<bool> Action(IWebElement element, Id id);
     }
 
 

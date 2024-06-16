@@ -21,7 +21,7 @@ namespace AutomatedFlow.PageObjects
             _ => Maybe<IWebElement>.None()
         };
 
-        public override Maybe<bool> PerformAction(IWebElement element, Id id) => id switch
+        public override Maybe<bool> Action(IWebElement element, Id id) => id switch
         {
             Id.Elegant => element.Displayed.ToMaybe(),
             Id.Projects => element.ClickSafe(),
