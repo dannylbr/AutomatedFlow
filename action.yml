@@ -1,6 +1,6 @@
-﻿name: 'Run SpecFlow Tests'
-description: 'A Github Action to run SpecFlow tests and create a LivingDoc'
-author: 'cryptic-wizard'
+﻿name: 'IntegraeSol AutomatedFlow'
+description: 'E2E Test for Integrae Solutions Website'
+author: 'dannylbr'
 branding:
   icon: check-square
   color: green
