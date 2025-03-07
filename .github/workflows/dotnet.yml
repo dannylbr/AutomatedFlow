@@ -19,15 +19,27 @@ jobs:
     - name: Restore Dependencies
       run: dotnet restore
 
-    - name: Build Project
-      run: dotnet build --configuration Debug
-
-    - name: Install Chrome
+    - name: Install Latest Chrome
       run: |
           sudo apt update
           sudo apt install -y google-chrome-stable
-          google-chrome --version
-
+          google-chrome --version  # Verify installed version
+    
+    - name: Install Latest ChromeDriver
+      run: |
+          # Fetch the latest ChromeDriver version available
+          DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE")
+          echo "Latest ChromeDriver Version: $DRIVER_VERSION"
+          # Download and install ChromeDriver
+          wget -q "https://chromedriver.storage.googleapis.com/${DRIVER_VERSION}/chromedriver_linux64.zip"
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          chmod +x /usr/local/bin/chromedriver
+          chromedriver --version  # Verify installed version
+          
+    - name: Build Project
+      run: dotnet build --configuration Debug    
+      
     - name: Run Tests
       run: dotnet test --logger "html;LogFilePath=IntegraeSolWebsiteResults.html"
 
