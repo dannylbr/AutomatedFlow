@@ -23,8 +23,7 @@ jobs:
       run: dotnet build --configuration Debug
 
     - name: Setup Chrome and ChromeDriver
-      uses: browser-actions/setup-chrome@v1
-
+      uses: browser-actions/setup-chrome@v2
 
     - name: Run Tests
       run: dotnet test --logger "html;LogFilePath=IntegraeSolWebsiteResults.html"
