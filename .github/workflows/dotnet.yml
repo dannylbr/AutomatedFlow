@@ -25,14 +25,10 @@ jobs:
           sudo rm -rf /usr/bin/google-chrome
           sudo rm -rf /usr/bin/chromedriver
 
-    - name: Install Latest Chrome
-      run: |
-          sudo apt update
-          sudo apt install -y google-chrome-stable
-          google-chrome --version  # Verify installed version
-    
     - name: Install Latest ChromeDriver
       run: |
+          sudo apt update
+          sudo apt upgrade
           # Fetch the latest ChromeDriver version available
           DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE")
           echo "Latest ChromeDriver Version: $DRIVER_VERSION"
