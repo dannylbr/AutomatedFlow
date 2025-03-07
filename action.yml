@@ -90,11 +90,11 @@ runs:
         dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
         livingdoc test-assembly "$_dll" -t "$_test" -o "${{ inputs.output-html }}"
       shell: bash
-    - name: 'Publish Specflow Test Results'
+    - name: 'E2E Test for Integrae Solutions Website'
       if: ${{ inputs.upload-artifact == 'true' }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
-        name: 'Specflow Test Results'
+        name: 'E2E Test for Integrae Solutions Website'
         path: ${{ inputs.output-html }}
     - name: ReturnCode
       run: |
