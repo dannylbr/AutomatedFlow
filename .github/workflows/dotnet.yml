@@ -3,8 +3,8 @@ name: .NET 8.0
 on:
   push:
     branches:
-      - main # ou a branch que você usa
-
+      - main
+      
 jobs:
   build:
     name: Build & Test
@@ -40,12 +40,3 @@ jobs:
 
     - name: Run Tests
       run: dotnet test --logger "html;LogFilePath=IntegraeSolWebsiteResults.html"
-
-    - name: List Files
-      run: ls -l AutomatedFlow/bin/Debug/net8.0/
-
-    - name: Upload Test Results
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-results
-        path: AutomatedFlow/bin/Debug/net8.0/IntegraeSolWebsiteResults.html
