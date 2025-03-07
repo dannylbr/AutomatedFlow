@@ -27,6 +27,7 @@ jobs:
 
     - name: Install Chrome for Testing
       run: |
+        sudo rm -f /usr/bin/google-chrome # Remove o google-chrome existente
         wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/134.0.6998.35/linux64/chrome-linux64.zip
         unzip chrome-linux64.zip
         sudo mv chrome-linux64 /opt/chrome-linux64

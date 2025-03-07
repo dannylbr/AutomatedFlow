@@ -34,7 +34,8 @@ namespace AutomatedFlow.Drivers
                 , "--start-maximized"
                 , "--no-sandbox"
                 , "--ignore-certificate-errors"
-                , "--headless"); 
+                , "--headless");
+            options.BinaryLocation = "/usr/bin/chrome";
             return new ChromeDriver(options);
         }
 
