@@ -30,8 +30,12 @@ jobs:
         wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/134.0.6998.35/linux64/chrome-linux64.zip
         unzip chrome-linux64.zip
         sudo mv chrome-linux64 /opt/chrome-linux64
-        sudo ln -s /opt/chrome-linux64/chrome /usr/bin/chrome
-        sudo ln -s /opt/chrome-linux64/chromedriver /usr/bin/chromedriver
+        if [ ! -f /usr/bin/chromedriver ]; then
+          sudo ln -s /opt/chrome-linux64/chromedriver /usr/bin/chromedriver
+        fi
+        if [ ! -f /usr/bin/chrome ]; then
+          sudo ln -s /opt/chrome-linux64/chrome /usr/bin/chrome
+        fi
 
     - name: Run Tests
       run: dotnet test --logger "html;LogFilePath=IntegraeSolWebsiteResults.html"
