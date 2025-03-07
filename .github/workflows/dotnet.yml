@@ -1,6 +1,9 @@
 name: .NET 8.0
+
 on:
   push:
+    branches:
+      - main # ou a branch que você usa
 
 jobs:
   build:
@@ -18,10 +21,18 @@ jobs:
 
     - name: Restore Dependencies
       run: dotnet restore
-          
+
     - name: Build Project
-      run: dotnet build --configuration Debug    
-      
+      run: dotnet build --configuration Debug
+
+    - name: Install Chrome for Testing
+      run: |
+        wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/134.0.6943.0/linux64/chrome-linux64.zip
+        unzip chrome-linux64.zip
+        sudo mv chrome-linux64 /opt/chrome-linux64
+        sudo ln -s /opt/chrome-linux64/chrome /usr/bin/chrome
+        sudo ln -s /opt/chrome-linux64/chromedriver /usr/bin/chromedriver
+
     - name: Run Tests
       run: dotnet test --logger "html;LogFilePath=IntegraeSolWebsiteResults.html"
 
