@@ -19,6 +19,12 @@ jobs:
     - name: Restore Dependencies
       run: dotnet restore
 
+    - name: Remove Old Chrome
+      run: |
+          sudo apt purge google-chrome-stable -y
+          sudo rm -rf /usr/bin/google-chrome
+          sudo rm -rf /usr/bin/chromedriver
+
     - name: Install Latest Chrome
       run: |
           sudo apt update
