@@ -39,4 +39,20 @@ jobs:
         fi
 
     - name: Run Tests
-      run: dotnet test --logger "html;LogFilePath=IntegraeSolWebsiteResults.html"
+      run: dotnet test
+
+    - uses: ./ # Usando sua action local.
+      with:
+          test-assembly-dll: 'AutomatedFlow.dll' # Ajuste o caminho conforme necessário.
+          output-html: 'test-results.html' # Definindo o nome do arquivo aqui.
+
+    - name: Copy Test Results to Docs
+      run: |
+        mkdir -p docs
+        cp test-results.html docs/index.html
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
