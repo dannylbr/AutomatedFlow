@@ -35,7 +35,8 @@ namespace AutomatedFlow.Drivers
                 , "--no-sandbox"
                 , "--ignore-certificate-errors"
                 , "--headless");
-            options.BinaryLocation = "/usr/bin/chrome";
+            if (Environment.OSVersion.Platform == PlatformID.Unix) 
+                options.BinaryLocation = "/usr/bin/chrome";
             return new ChromeDriver(options);
         }
 
