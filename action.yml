@@ -92,7 +92,7 @@ runs:
       shell: bash
     - name: 'E2E Test for Integrae Solutions Website'
       if: ${{ inputs.upload-artifact == 'true' }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: 'E2E Test for Integrae Solutions Website'
         path: ${{ inputs.output-html }}
