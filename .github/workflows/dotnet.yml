@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      
+
 jobs:
   build:
     name: Build & Test
@@ -40,11 +40,12 @@ jobs:
 
     - name: Run Tests
       run: dotnet test
-      
+
     - name: Copy Test Results to Docs
       run: |
-          mkdir -p docs
-          cp LivingDoc.html docs/index.html
+        mkdir -p docs
+        ls -l # Adicionado para verificar os arquivos no diretório de trabalho
+        cp LivingDoc.html docs/index.html # Ajuste o caminho se necessário
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
@@ -57,6 +58,3 @@ jobs:
       uses: actions/deploy-pages@v4
       with:
         artifact_name: github-pages
-                
-    - name: Checkout repository
-      uses: actions/checkout@v3
