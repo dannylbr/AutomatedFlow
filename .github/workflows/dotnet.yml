@@ -43,8 +43,8 @@ jobs:
 
     - uses: ./ # Usando sua action local.
       with:
-          test-assembly-dll: 'AutomatedFlow.dll'
-          output-html: 'LivingDoc.html' # Definindo o nome do arquivo aqui.
+          test-assembly-dll:  /home/runner/work/AutomatedFlow/AutomatedFlow.dll
+          output-html: LivingDoc.html # Definindo o nome do arquivo aqui.
 
     - name: Copy Test Results to Docs
       run: |
