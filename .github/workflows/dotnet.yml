@@ -9,6 +9,10 @@ jobs:
   build:
     name: Build & Test
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      pages: write
+      contents: read
 
     steps:
     - name: Checkout
@@ -27,7 +31,7 @@ jobs:
 
     - name: Install Chrome for Testing
       run: |
-        sudo rm -f /usr/bin/google-chrome # Remove o google-chrome existente
+        sudo rm -f /usr/bin/google-chrome
         wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/134.0.6998.35/linux64/chrome-linux64.zip
         unzip chrome-linux64.zip
         sudo mv chrome-linux64 /opt/chrome-linux64
@@ -57,6 +61,3 @@ jobs:
       uses: actions/deploy-pages@v4
       with:
         artifact_name: github-pages
-                
-    - name: Checkout repository
-      uses: actions/checkout@v3
