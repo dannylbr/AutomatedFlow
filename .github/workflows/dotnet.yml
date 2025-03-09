@@ -43,8 +43,8 @@ jobs:
       
     - name: Copy Test Results to Docs
       run: |
-        mkdir -p docs
-        cp LivingDoc.html docs/index.html
+          mkdir -p docs
+          cp LivingDoc.html docs/index.html
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
