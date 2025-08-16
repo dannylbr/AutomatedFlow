@@ -1,6 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using Boa.Constrictor.Screenplay;
+using Boa.Constrictor.Selenium;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Remote;
 using Reqnroll;
 using Reqnroll.BoDi;
 using System;
@@ -10,29 +11,19 @@ namespace AutomatedFlow.Hooks
     [Binding]
     public class TestInitialize(IObjectContainer objectContainer)
     {
-        public IWebDriver? WebDriver { get; private set; }
+        Actor? Actor { get; set; }
         [BeforeScenario]
         public void BeforeScenario()
         {
-            var options = new ChromeOptions();
-            try
-            {
-                WebDriver = new RemoteWebDriver(new Uri(""), options.ToCapabilities());
-            }
-            catch (Exception)
-            {
-                WebDriver = new ChromeDriver(options);
-            }  
-            objectContainer.RegisterInstanceAs(WebDriver);
+            ChromeOptions options = new();
+            options.AddArgument("headless");
+            options.AddArgument("window-size=1920,1080");
+            var Actor = new Actor("AutomatedFlowActor", new ConsoleLogger());
+            Actor.Can(BrowseTheWeb.With(new ChromeDriver(options)));
+            objectContainer.RegisterInstanceAs(Actor);
         }
 
         [AfterScenario]
-        public void AfterScenario()
-        {
-            if (WebDriver != null)
-            {
-                WebDriver.Quit();
-            }
-        }
+        public void AfterScenario() => Actor?.AttemptsTo(QuitWebDriver.ForBrowser());
     }
 }
