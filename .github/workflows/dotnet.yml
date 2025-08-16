@@ -40,7 +40,6 @@ jobs:
 
     - uses: ./ # Usando sua action local.
       with:
-          test-execution-json: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/TestExecution.json
           test-assembly-dll: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/AutomatedFlow.dll
 
     - name: Upload Pages artifact
