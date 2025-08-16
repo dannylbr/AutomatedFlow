@@ -29,18 +29,11 @@ jobs:
     - name: Build Project
       run: dotnet build --configuration Debug
 
-    - name: Install Chrome for Testing
-      run: |
-        sudo rm -f /usr/bin/google-chrome
-        wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/134.0.6998.35/linux64/chrome-linux64.zip
-        unzip chrome-linux64.zip
-        sudo mv chrome-linux64 /opt/chrome-linux64
-        if [ ! -f /usr/bin/chromedriver ]; then
-          sudo ln -s /opt/chrome-linux64/chromedriver /usr/bin/chromedriver
-        fi
-        if [ ! -f /usr/bin/chrome ]; then
-          sudo ln -s /opt/chrome-linux64/chrome /usr/bin/chrome
-        fi
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@v1
+    
+    - name: Setup ChromeDriver
+      uses: nanasess/setup-chromedriver@v2
 
     - name: Run Tests
       run: dotnet test
