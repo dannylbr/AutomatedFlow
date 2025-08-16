@@ -1,31 +1,19 @@
-﻿using AutomatedFlow.Drivers;
-using AutomatedFlow.Helpers;
+﻿using AutomatedFlow.Helpers;
 using AutomatedFlow.PageObjects;
 using OpenQA.Selenium;
-using System.Collections.Generic;
-using System.Linq;
-using TechTalk.SpecFlow;
+using Reqnroll;
 using Xunit;
 
 namespace AutomatedFlow.Steps
 {
     [Binding]
-    public sealed class Homepage
+    public sealed class Homepage(IWebDriver _driver, HomePageObject _home)
     {
-        private readonly IWebDriver _driver;
-        private readonly HomePageObject _home;
-
-        public Homepage(IDriverFixture driverFixture, HomePageObject home)
-        {
-            _driver = driverFixture.Driver;
-            _home = home;
-        }
-        
         [Given(@"I navigate to Integræ Solutions homepage")]
         public void GivenINavigateToIntegraeSolutionsHomepage() => _driver.Navigate().GoToUrl("https://sites.google.com/view/integraesol/");
 
         [Then(@"Elegant text is shown")]
-        public void ThenElegantTextIsShown() => Assert.True(_home.Act(Id.Elegant), "Elegant text is not shown");
+        public void ThenElegantTextIsShown() => Assert.True(_home.ElegantTextIsShown(), "Elegant text is not shown");
 
         [When(@"Click on Projects link")]
         public void WhenClickOnProjectsLink() => Assert.True(_home.Act(Id.Projects), "Projects link could not be clicked");

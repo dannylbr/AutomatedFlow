@@ -1,14 +1,10 @@
-﻿using AutomatedFlow.Drivers;
-using AutomatedFlow.Helpers;
+﻿using AutomatedFlow.Helpers;
 using OpenQA.Selenium;
-using TechTalk.SpecFlow;
 
 namespace AutomatedFlow.PageObjects
 {
-    [Binding]
-    public sealed class HomePageObject : BasePageObject
+    public sealed class HomePageObject(IWebDriver driver) : BasePageObject(driver)
     {
-        public HomePageObject(IDriverFixture driverFixture) : base(driverFixture.Driver) { }
 
         public override Maybe<IWebElement> Get(Id id) => id switch
         {
@@ -31,5 +27,7 @@ namespace AutomatedFlow.PageObjects
             Id.Title => element.Displayed.ToMaybe(),
             _ => Maybe<bool>.None()
         };
+
+        public bool ElegantTextIsShown() => Act(Id.Elegant);
     }
 }

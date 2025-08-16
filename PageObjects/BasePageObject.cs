@@ -1,7 +1,5 @@
-﻿using AngleSharp.Dom;
-using AutomatedFlow.Helpers;
+﻿using AutomatedFlow.Helpers;
 using OpenQA.Selenium;
-using System;
 
 namespace AutomatedFlow.PageObjects
 {
