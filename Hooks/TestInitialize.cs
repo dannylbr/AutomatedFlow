@@ -22,6 +22,6 @@ namespace AutomatedFlow.Hooks
         }
 
         [AfterScenario]
-        public void AfterScenario() => objectContainer.Resolve<Actor>()?.AttemptsTo(QuitWebDriver.ForBrowser());
+        public void AfterScenario() { try { objectContainer.Resolve<Actor>().AttemptsTo(QuitWebDriver.ForBrowser()); } catch { } }
     }
 }
