@@ -10,7 +10,23 @@ namespace AutomatedFlow.Hooks
     [Binding]
     public class TestInitialize(IObjectContainer objectContainer)
     {
+        public ChromeDriver? WebDriver { get; private set; }
         [BeforeScenario]
-        public void BeforeScenario() => objectContainer.RegisterInstanceAs<IWebDriver>(new ChromeDriver());
+        public void BeforeScenario()
+        {
+            var options = new ChromeOptions();
+            options.AddArgument("--user-data-dir=/tmp/chrome-profile-" + Guid.NewGuid());
+            WebDriver = new ChromeDriver(options);
+            objectContainer.RegisterInstanceAs<IWebDriver>(WebDriver);
+        }
+
+        [AfterScenario]
+        public void AfterScenario()
+        {
+            if (WebDriver != null)
+            {
+                WebDriver.Quit();
+            }
+        }
     }
 }
