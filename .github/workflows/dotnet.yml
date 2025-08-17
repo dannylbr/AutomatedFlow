@@ -27,7 +27,7 @@ jobs:
       run: dotnet restore
 
     - name: Build Project
-      run: dotnet build --configuration Debug
+      run: dotnet build --configuration Debug --no-restore
 
     - name: Setup Chrome
       uses: browser-actions/setup-chrome@v1
@@ -38,9 +38,19 @@ jobs:
     - name: Run Tests
       run: dotnet test --logger "console;verbosity=detailed"
 
+    - name: Install Allure CLI
+      run: |
+        npm install -g allure-commandline
+      env:
+        NODE_VERSION: 16 # Specify a Node.js version for compatibility
+
     - name: Generate Allure Report
       run: |
         allure generate allure-results -o allure-report
+      continue-on-error: true # Allow the workflow to continue even if report generation fails
+
+    - name: Debug Allure Results
+      run: ls -la allure-results
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3

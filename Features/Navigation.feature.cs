@@ -17,12 +17,16 @@ namespace AutomatedFlow.Features
     
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    [Xunit.TraitAttribute("Category", "feature:Navigation")]
+    [Xunit.TraitAttribute("Category", "severity:critical")]
     public partial class NavigationFeature : object, Xunit.IClassFixture<NavigationFeature.FixtureData>, Xunit.IAsyncLifetime
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "feature:Navigation",
+                "severity:critical"};
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "Navigation", "As a user, \r\nI want to be able to navigate to different pages on the \r\nIntegræ So" +
                 "lutions website so that \r\nI can access the information and features I need.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
@@ -105,9 +109,9 @@ namespace AutomatedFlow.Features
         
         public virtual async global::System.Threading.Tasks.Task FeatureBackgroundAsync()
         {
-#line 7
-#line hidden
 #line 8
+#line hidden
+#line 9
  await testRunner.GivenAsync("I navigate to Integræ Solutions homepage", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
         }
@@ -140,11 +144,9 @@ namespace AutomatedFlow.Features
         [Xunit.SkippableFactAttribute(DisplayName="Visit Homepage")]
         [Xunit.TraitAttribute("FeatureTitle", "Navigation")]
         [Xunit.TraitAttribute("Description", "Visit Homepage")]
-        [Xunit.TraitAttribute("Category", "Homepage")]
         public async global::System.Threading.Tasks.Task VisitHomepage()
         {
-            string[] tagsOfScenario = new string[] {
-                    "Homepage"};
+            string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Visit Homepage", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 11
@@ -157,7 +159,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 7
+#line 8
 await this.FeatureBackgroundAsync();
 #line hidden
 #line 12
@@ -170,16 +172,12 @@ await this.FeatureBackgroundAsync();
         [Xunit.SkippableFactAttribute(DisplayName="Access Projects page from the menu")]
         [Xunit.TraitAttribute("FeatureTitle", "Navigation")]
         [Xunit.TraitAttribute("Description", "Access Projects page from the menu")]
-        [Xunit.TraitAttribute("Category", "Homepage")]
-        [Xunit.TraitAttribute("Category", "Projects")]
         public async global::System.Threading.Tasks.Task AccessProjectsPageFromTheMenu()
         {
-            string[] tagsOfScenario = new string[] {
-                    "Homepage",
-                    "Projects"};
+            string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Access Projects page from the menu", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 15
+#line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -189,13 +187,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 7
+#line 8
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 16
+#line 15
  await testRunner.WhenAsync("Click on Projects link", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 17
+#line 16
  await testRunner.ThenAsync("Projects page is shown", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -205,16 +203,12 @@ await this.FeatureBackgroundAsync();
         [Xunit.SkippableFactAttribute(DisplayName="Access About page from the menu")]
         [Xunit.TraitAttribute("FeatureTitle", "Navigation")]
         [Xunit.TraitAttribute("Description", "Access About page from the menu")]
-        [Xunit.TraitAttribute("Category", "Homepage")]
-        [Xunit.TraitAttribute("Category", "About")]
         public async global::System.Threading.Tasks.Task AccessAboutPageFromTheMenu()
         {
-            string[] tagsOfScenario = new string[] {
-                    "Homepage",
-                    "About"};
+            string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Access About page from the menu", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 20
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -224,13 +218,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 7
+#line 8
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 21
+#line 19
  await testRunner.WhenAsync("Click on About link", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 22
+#line 20
  await testRunner.ThenAsync("About page is shown", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -240,16 +234,12 @@ await this.FeatureBackgroundAsync();
         [Xunit.SkippableFactAttribute(DisplayName="Access Comments page from the menu")]
         [Xunit.TraitAttribute("FeatureTitle", "Navigation")]
         [Xunit.TraitAttribute("Description", "Access Comments page from the menu")]
-        [Xunit.TraitAttribute("Category", "Homepage")]
-        [Xunit.TraitAttribute("Category", "Comments")]
         public async global::System.Threading.Tasks.Task AccessCommentsPageFromTheMenu()
         {
-            string[] tagsOfScenario = new string[] {
-                    "Homepage",
-                    "Comments"};
+            string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Access Comments page from the menu", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 25
+#line 22
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -259,13 +249,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 7
+#line 8
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 26
+#line 23
  await testRunner.WhenAsync("Click on Comments link", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 27
+#line 24
  await testRunner.ThenAsync("Comments page is shown", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -280,7 +270,7 @@ await this.FeatureBackgroundAsync();
             string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Access all links in the body", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 29
+#line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -290,10 +280,10 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 7
+#line 8
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 30
+#line 27
  await testRunner.ThenAsync("I click in all the links and they succeed", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
