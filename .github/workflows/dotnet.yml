@@ -27,7 +27,7 @@ jobs:
       run: dotnet restore
 
     - name: Build Project
-      run: dotnet build --configuration Debug --no-restore
+      run: dotnet build --configuration Debug
 
     - name: Setup Chrome
       uses: browser-actions/setup-chrome@v1
@@ -38,28 +38,34 @@ jobs:
     - name: Run Tests
       run: dotnet test --logger "console;verbosity=detailed"
 
-    - name: Install Allure CLI
-      run: |
-        npm install -g allure-commandline
-      env:
-        NODE_VERSION: 16 # Specify a Node.js version for compatibility
-
     - name: Generate Allure Report
-      run: |
-        allure generate allure-results -o allure-report
-      continue-on-error: true # Allow the workflow to continue even if report generation fails
+      uses: simple-elf/allure-report-action@v1.7
+      with:
+        allure_results: ./AutomatedFlow/bin/Debug/net8.0/allure-results
+        allure_report: ./docs
+        gh_pages: ./docs
 
-    - name: Debug Allure Results
-      run: ls -la allure-report
+    - name: Debug docs content
+      run: ls -R ./docs
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
         name: github-pages
-        path: ./allure-report
+        path: ./docs
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./allure-report
+  Deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
