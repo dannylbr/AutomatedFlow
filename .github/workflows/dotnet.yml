@@ -36,10 +36,23 @@ jobs:
       uses: nanasess/setup-chromedriver@v2
 
     - name: Run Tests
-      run: dotnet test --logger "trx;LogFileName=test_results.trx"
+      run: dotnet test --logger "console;verbosity=detailed"
 
     - name: Generate Allure Report
       uses: simple-elf/allure-report-action@v1.7
       with:
-        results-dir: ./TestResults
-        report-dir: ./allure-report
+        allure_results: ./AutomatedFlow/bin/Debug/net8.0/allure-results
+        allure_report: ./allure-report
+        gh_pages: ./docs
+
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        name: github-pages
+        path: ./docs
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+      with:
+        artifact_name: github-pages
