@@ -36,4 +36,10 @@ jobs:
       uses: nanasess/setup-chromedriver@v2
 
     - name: Run Tests
-      run: dotnet test
+      run: dotnet test --logger "trx;LogFileName=test_results.trx"
+
+    - name: Generate Allure Report
+      uses: simple-elf/allure-report-action@v1.7
+      with:
+        results-dir: ./TestResults
+        report-dir: ./allure-report
