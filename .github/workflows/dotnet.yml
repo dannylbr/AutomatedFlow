@@ -54,7 +54,7 @@ jobs:
         name: github-pages
         path: ./docs
 
-  deploy:
+  Deploy:
     needs: build
     runs-on: ubuntu-latest
     permissions:
