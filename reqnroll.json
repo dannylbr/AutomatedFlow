@@ -11,7 +11,7 @@
   },
   "stepAssemblies": [
     {
-      "assembly": "Allure.SpecFlowPlugin"
+      "assembly": "Allure.Reqnroll"
     }
   ]
 }
