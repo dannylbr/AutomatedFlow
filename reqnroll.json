@@ -2,5 +2,16 @@
   "plugins": [
     { "name": "Allure.Reqnroll" }
   ],
-  "output": "bin/Debug/net8.0/allure-results"
+  "output": "bin/Debug/net8.0/allure-results",
+  "bindingCulture": {
+    "language": "en-us"
+  },
+  "language": {
+    "feature": "en-us"
+  },
+  "stepAssemblies": [
+    {
+      "assembly": "Allure.SpecFlowPlugin"
+    }
+  ]
 }
