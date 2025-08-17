@@ -50,7 +50,7 @@ jobs:
       continue-on-error: true # Allow the workflow to continue even if report generation fails
 
     - name: Debug Allure Results
-      run: ls -la allure-results
+      run: ls -la allure-report
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
