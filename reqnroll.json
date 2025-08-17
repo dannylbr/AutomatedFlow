@@ -1,7 +1,6 @@
 {
   "plugins": [
-    {
-      "name": "Allure.Reqnroll"
-    }
-  ]
+    { "name": "Allure.Reqnroll" }
+  ],
+  "output": "bin/Debug/net8.0/allure-results"
 }
