@@ -1,3 +1,5 @@
+name: .NET 8.0
+
 on:
   push:
     branches:
@@ -5,29 +7,84 @@ on:
 
 jobs:
   build:
+    name: Build & Test
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      pages: write
+      contents: read
+
     steps:
-      - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v3
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+    - name: Setup .NET 8.0
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore Dependencies
+      run: dotnet restore
+
+    - name: Build Project
+      run: dotnet build --configuration Debug
+
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@v1
+    
+    - name: Setup ChromeDriver
+      uses: nanasess/setup-chromedriver@v2
+
+    - name: Run Tests
+      run: dotnet test --logger "trx;LogFileName=test_results.trx"
+
+    - name: Debug - List bin folders
+      run: ls -R ./AutomatedFlow/bin/Debug/net8.0 || true
+
+    - name: Debug - List TestResults
+      run: ls -R ./AutomatedFlow/TestResults || true
+
+    - name: Upload TRX Test Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: trx-results
+        path: ./AutomatedFlow/TestResults
+
+    - name: Generate Allure Report
+      uses: simple-elf/allure-report-action@v1.7
+      with:
+        allure_results: ./AutomatedFlow/bin/Debug/net8.0/allure-results
+        allure_report: ./docs
+        gh_pages: ./docs
+
+    - name: Upload Allure Raw Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-results
+        path: ./AutomatedFlow/bin/Debug/net8.0/allure-results
+        if-no-files-found: warn
+
+    - name: Debug docs content
+      run: ls -R ./docs
+
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        name: github-pages
+        path: ./docs
+
+  Deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
         with:
-          dotnet-version: 8.0.x
-
-      - name: Build & Test
-        run: |
-          dotnet build ./AutomatedFlow/AutomatedFlow.csproj
-          dotnet test ./AutomatedFlow/AutomatedFlow.csproj --logger "trx;LogFileName=test_results.trx" --results-directory ./AutomatedFlow/TestResults
-
-      - name: Install Allure CLI
-        run: npm install -g allure-commandline --save-dev
-
-      - name: Generate Allure Report
-        run: |
-          allure generate ./AutomatedFlow/TestResults -o ./docs --clean
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          artifact_name: github-pages
