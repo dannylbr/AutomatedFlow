@@ -2,10 +2,7 @@
   "reqnroll": {
     "plugins": [
       {
-        "name": "Allure.Reqnroll",
-        "parameters": {
-          "allureResultsDir": "./**/bin/Debug/net8.0/allure-results"
-        }
+        "name": "Allure.Reqnroll"
       }
     ]
   }
