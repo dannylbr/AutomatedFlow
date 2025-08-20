@@ -34,32 +34,38 @@ jobs:
     
     - name: Setup ChromeDriver
       uses: nanasess/setup-chromedriver@v2
-      
+
     - name: Run Tests
-      run: dotnet test --logger "console;verbosity=normal" --logger "trx;LogFileName=test_results.trx"
-        
+      run: dotnet test --logger "trx;LogFileName=test_results.trx"
+
+    # Debug where Allure results end up
+    - name: Debug - List bin folders
+      run: ls -R ./AutomatedFlow/bin/Debug/net8.0 || true
+
+    - name: Debug - List TestResults
+      run: ls -R ./AutomatedFlow/TestResults || true
+
+    # Upload TRX results as artifact (for debugging, optional)
+    - name: Upload TRX Test Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: trx-results
+        path: ./AutomatedFlow/TestResults
+
+    # Upload Allure raw results (if plugin generated them)
+    - name: Upload Allure Raw Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-results
+        path: ./AutomatedFlow/bin/Debug/net8.0/allure-results
+        if-no-files-found: warn
+
     - name: Generate Allure Report
       uses: simple-elf/allure-report-action@v1.7
       with:
         allure_results: ./AutomatedFlow/bin/Debug/net8.0/allure-results
         allure_report: ./docs
         gh_pages: ./docs
-
-    - name: Inspect test logs
-      run: |
-        echo "Checking if Allure plugin was loaded..."
-        cat TestResults/*.trx || true
-
-    - name: List output folders
-      run: ls -R ./AutomatedFlow/bin/Debug/net8.0 || true
-    - name: Check for allure-results
-      run: ls -R ./AutomatedFlow/bin/Debug/net8.0/allure-results || true
-    
-    - name: Upload Test Results
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-results
-        path: ./TestResults
 
     - name: Debug docs content
       run: ls -R ./docs
