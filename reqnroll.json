@@ -1,7 +1,12 @@
 {
-  "plugins": [
-    {
-      "name": "Allure.Reqnroll"
-    }
-  ]
+  "reqnroll": {
+    "plugins": [
+      {
+        "name": "Allure.Reqnroll",
+        "parameters": {
+          "allureResultsDir": "allure-results"
+        }
+      }
+    ]
+  }
 }
