@@ -4,7 +4,7 @@
       {
         "name": "Allure.Reqnroll",
         "parameters": {
-          "allureResultsDir": "allure-results"
+          "allureResultsDir": "./**/bin/Debug/net8.0/allure-results"
         }
       }
     ]
