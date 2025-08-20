@@ -39,21 +39,21 @@ jobs:
       run: dotnet test --logger "trx;LogFileName=test_results.trx"
 
     - name: Debug - List bin folders
-      run: ls -R ./AutomatedFlow/bin/Debug/net8.0 || true
+      run: ls -R ./bin/Debug/net8.0 || true
 
     - name: Debug - List TestResults
-      run: ls -R ./AutomatedFlow/TestResults || true
+      run: ls -R ./TestResults || true
 
     - name: Upload TRX Test Results
       uses: actions/upload-artifact@v4
       with:
         name: trx-results
-        path: ./AutomatedFlow/TestResults
+        path: ./TestResults
 
     - name: Generate Allure Report
       uses: simple-elf/allure-report-action@v1.7
       with:
-        allure_results: ./AutomatedFlow/bin/Debug/net8.0/allure-results
+        allure_results: ./bin/Debug/net8.0/allure-results
         allure_report: ./docs
         gh_pages: ./docs
 
@@ -61,7 +61,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: allure-results
-        path: ./AutomatedFlow/bin/Debug/net8.0/allure-results
+        path: ./bin/Debug/net8.0/allure-results
         if-no-files-found: warn
 
     - name: Debug docs content
