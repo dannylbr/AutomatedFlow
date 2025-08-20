@@ -45,12 +45,12 @@ jobs:
       run: ls -l ./AutomatedFlow/bin/Debug/net8.0/allure-results
     
     - name: Generate Allure Report
-      if: success() && hashFiles('./AutomatedFlow/bin/Debug/net8.0/allure-results/*') != ''
       uses: simple-elf/allure-report-action@v1.7
       with:
-        allure_results: ./AutomatedFlow/bin/Debug/net8.0/allure-results
+        allure_results: ./**/bin/Debug/net8.0/allure-results
         allure_report: ./docs
         gh_pages: ./docs
+
 
     - name: Debug docs content
       run: ls -R ./docs
