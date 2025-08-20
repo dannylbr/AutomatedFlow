@@ -21,7 +21,7 @@ namespace AutomatedFlow.Steps
         [Then(@"Projects page is shown")]
         [Then(@"About page is shown")]
         [Then(@"Comments page is shown")]
-        public void ThenProjectsPageIsShown() => Assert.True(Actor.AskingFor<bool>(Existence.Of(Home.Title)), "Page title is not shown");
+        public void ThenProjectsPageIsShown() => Assert.True(Actor.AskingFor(Existence.Of(Home.Title)), "Page title is not shown");
 
         [When(@"Click on About link")]
         public void WhenClickOnAboutLink() => Actor.AttemptsTo(Click.On(Home.About));
