@@ -2,7 +2,16 @@
   "reqnroll": {
     "plugins": [
       {
-        "name": "Allure.Reqnroll"
+        "name": "Allure.Reqnroll",
+        "parameters": {
+          "allureResultsDirectory": "allure-results",
+          "allureReportDirectory": "docs",
+          "allureConfigFile": "allure-config.json",
+          "enableAllureAttachments": true,
+          "enableAllureLabels": true,
+          "enableAllureLinks": true,
+          "enableAllureParameters": true
+        }
       }
     ]
   }
