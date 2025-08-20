@@ -41,6 +41,11 @@ jobs:
     - name: Run Tests
       run: dotnet test --logger "console;verbosity=detailed"
 
+    - name: Inspect test logs
+      run: |
+        echo "Checking if Allure plugin was loaded..."
+        cat TestResults/*.trx || true
+
     - name: Find Allure results
       run: |
         echo "Searching for allure-results..."
