@@ -33,7 +33,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="C:\Users\integrae\.nuget\packages\allure.net.commons\2.12.1\contentFiles\any\netstandard2.0\allureConfig.Template.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="allureConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="reqnroll.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
