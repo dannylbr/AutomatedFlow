@@ -34,26 +34,10 @@ jobs:
     
     - name: Setup ChromeDriver
       uses: nanasess/setup-chromedriver@v2
-
+      
     - name: Run Tests
-      run: dotnet test --logger "console;verbosity=detailed"
-
-    - name: Run Tests
-      run: dotnet test --logger "console;verbosity=detailed"
-
-    - name: Inspect test logs
-      run: |
-        echo "Checking if Allure plugin was loaded..."
-        cat TestResults/*.trx || true
-
-    - name: Find Allure results
-      run: |
-        echo "Searching for allure-results..."
-        find . -type d -name "allure-results"
-
-    - name: Check Allure Results
-      run: ls -l ./AutomatedFlow/bin/Debug/net8.0/allure-results
-    
+      run: dotnet test --logger "console;verbosity=normal" --logger "trx;LogFileName=test_results.trx"
+        
     - name: Generate Allure Report
       uses: simple-elf/allure-report-action@v1.7
       with:
@@ -61,6 +45,21 @@ jobs:
         allure_report: ./docs
         gh_pages: ./docs
 
+    - name: Inspect test logs
+      run: |
+        echo "Checking if Allure plugin was loaded..."
+        cat TestResults/*.trx || true
+
+    - name: List output folders
+      run: ls -R ./AutomatedFlow/bin/Debug/net8.0 || true
+    - name: Check for allure-results
+      run: ls -R ./AutomatedFlow/bin/Debug/net8.0/allure-results || true
+    
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: ./TestResults
 
     - name: Debug docs content
       run: ls -R ./docs
