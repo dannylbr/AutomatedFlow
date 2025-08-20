@@ -41,6 +41,11 @@ jobs:
     - name: Run Tests
       run: dotnet test --logger "console;verbosity=detailed"
 
+    - name: Find Allure results
+      run: |
+        echo "Searching for allure-results..."
+        find . -type d -name "allure-results"
+
     - name: Check Allure Results
       run: ls -l ./AutomatedFlow/bin/Debug/net8.0/allure-results
     
