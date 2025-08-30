@@ -36,7 +36,7 @@ jobs:
       uses: nanasess/setup-chromedriver@v2
 
     - name: Run Tests with ReqNroll JSON logger
-      run: dotnet test
+      run: dotnet test --logger:"json;LogFilePath=reqnroll.json"
     
     - name: Debug - List generated files
       run: ls -l
@@ -44,8 +44,13 @@ jobs:
     - uses: ./
       with:
         test-execution-json: ./reqnroll.json
-        test-assembly-dll: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/AutomatedFlow.dll
+        test-assembly-dll: ./bin/Debug/net8.0/AutomatedFlow.dll
         output-html: reqnroll_report.html
+
+    - name: Debug - Show contents of reqnroll.json
+      run: |
+          echo "=== reqnroll.json preview ==="
+          head -n 50 reqnroll.json || echo "reqnroll.json not found"
 
     - name: Copy Test Results to Docs
       run: |
