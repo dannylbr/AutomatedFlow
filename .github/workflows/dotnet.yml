@@ -40,24 +40,24 @@ jobs:
 
     - uses: ./
       with:
-          test-execution-json: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/reqnroll.json
-          test-assembly-dll: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/AutomatedFlow.dll
-          output-html: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/reqnroll_report.html
+          test-execution-json: ./reqnroll.json
+          test-assembly-dll: ./AutomatedFlow.dll
+          output-html: ./reqnroll_report.html
 
     - name: Copy Test Results to Docs
       run: |
-        mkdir -p /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/docs
+        mkdir -p ./docs
         ls -l
-        cp /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/reqnroll_report.html /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/docs/index.html
+        cp ./reqnroll_report.html ./docs/index.html
 
     - name: Debug - List bin folders
-      run: ls -R /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0 || true
+      run: ls -R ./ || true
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
         name: github-pages
-        path: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/docs
+        path: ./docs
 
   Deploy:
     needs: build
