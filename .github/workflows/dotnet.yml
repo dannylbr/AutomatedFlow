@@ -36,28 +36,21 @@ jobs:
       uses: nanasess/setup-chromedriver@v2
 
     - name: Run Tests
-      run: dotnet test --logger "trx;LogFileName=test_results.trx"
+      run: dotnet test
 
+    - uses: ./ # Usando sua action local.
+      with:
+          test-execution-json: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/TestExecution.json
+          test-assembly-dll: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/AutomatedFlow.dll
+          output-html: LivingDoc.html # Definindo o nome do arquivo aqui.
+
+    - name: Copy Test Results to Docs
+      run: |
+        mkdir -p docs
+        ls -l # Adicionado para verificar os arquivos no diretório de trabalho
+        cp LivingDoc.html docs/index.html # Ajuste o caminho se necessário
     - name: Debug - List bin folders
       run: ls -R ./bin/Debug/net8.0 || true
-
-    - name: Debug - List TestResults
-      run: ls -R ./TestResults || true
-
-    - name: Upload TRX Test Results
-      uses: actions/upload-artifact@v4
-      with:
-        name: trx-results
-        path: ./TestResults
-
-    - name: Install LivingDoc CLI
-      run: dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
-
-    - name: Generate LivingDoc Report
-      run: dotnet livingdoc test-assembly ./bin/Debug/net8.0/AutomatedFlow.dll -t ./TestResults/test_results.trx -o ./docs
-
-    - name: Debug docs content
-      run: ls -R ./docs
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
