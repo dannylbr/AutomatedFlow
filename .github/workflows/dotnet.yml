@@ -50,6 +50,9 @@ jobs:
         name: trx-results
         path: ./TestResults
 
+    - name: Install LivingDoc CLI
+      run: dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+
     - name: Generate LivingDoc Report
       run: dotnet livingdoc test-assembly ./bin/Debug/net8.0/AutomatedFlow.dll -t ./TestResults/test_results.trx -o ./docs
 
