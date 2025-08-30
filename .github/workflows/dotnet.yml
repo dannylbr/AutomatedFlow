@@ -46,7 +46,6 @@ jobs:
 
     - name: Generate LivingDoc HTML
       run: |
-        # adjust the TestExecution.json path if needed
         livingdoc feature-folder ./Features \
           --output-type HTML \
           -t ./bin/Debug/net8.0/TestExecution.json \
