@@ -46,18 +46,18 @@ jobs:
 
     - name: Copy Test Results to Docs
       run: |
-        mkdir -p docs
+        mkdir -p /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/docs
         ls -l
-        cp reqnroll_report.html docs/index.html
+        cp /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/reqnroll_report.html /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/docs/index.html
 
     - name: Debug - List bin folders
-      run: ls -R ./bin/Debug/net8.0 || true
+      run: ls -R /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0 || true
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
         name: github-pages
-        path: ./docs
+        path: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/docs
 
   Deploy:
     needs: build
