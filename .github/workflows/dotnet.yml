@@ -40,15 +40,15 @@ jobs:
 
     - uses: ./
       with:
-          test-execution-json: ./reqnroll.json
-          test-assembly-dll: ./AutomatedFlow.dll
-          output-html: ./reqnroll_report.html
+          test-execution-json: reqnroll.json
+          test-assembly-dll: AutomatedFlow.dll
+          output-html: reqnroll_report.html
 
     - name: Copy Test Results to Docs
       run: |
-        mkdir -p ./docs
+        mkdir -p docs
         ls -l
-        cp ./reqnroll_report.html ./docs/index.html
+        cp reqnroll_report.html docs/index.html
 
     - name: Debug - List bin folders
       run: ls -R ./ || true
@@ -57,7 +57,7 @@ jobs:
       uses: actions/upload-pages-artifact@v3
       with:
         name: github-pages
-        path: ./docs
+        path: docs
 
   Deploy:
     needs: build
