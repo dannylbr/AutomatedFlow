@@ -10,8 +10,8 @@
     <PackageReference Include="Boa.Constrictor" Version="4.1.0" />
     <PackageReference Include="Google.Protobuf" Version="3.32.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-    <PackageReference Include="Reqnroll" Version="2.*" />
-    <PackageReference Include="Reqnroll.xUnit" Version="2.4.1" />
+    <PackageReference Include="Reqnroll" Version="3.0.0" />
+    <PackageReference Include="Reqnroll.xUnit" Version="3.0.0" />
     <PackageReference Include="Selenium.WebDriver" Version="4.35.0" />
     <PackageReference Include="SeleniumExtras.WaitHelpers" Version="1.0.2" />
     <PackageReference Include="SolidToken.SpecFlow.DependencyInjection" Version="3.9.3" />
@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="specflow.json">
+    <None Update="reqnroll.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
