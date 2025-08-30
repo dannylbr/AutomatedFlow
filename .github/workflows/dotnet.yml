@@ -35,6 +35,9 @@ jobs:
     - name: Setup ChromeDriver
       uses: nanasess/setup-chromedriver@v2
 
+    - name: Install JSON Test Logger
+      run: dotnet tool install --global Microsoft.TestPlatform.Extensions.JsonLogger
+
     - name: Run Tests with ReqNroll JSON logger
       run: dotnet test --logger:"json;LogFilePath=reqnroll.json"
     
