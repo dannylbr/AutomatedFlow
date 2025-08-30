@@ -36,7 +36,7 @@ jobs:
       uses: nanasess/setup-chromedriver@v2
 
     - name: Run Tests with ReqNroll JSON logger
-      run: dotnet test --logger:"json;LogFilePath=reqnroll.json"
+      run: dotnet test
     
     - name: Debug - List generated files
       run: ls -l
