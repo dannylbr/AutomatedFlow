@@ -40,9 +40,9 @@ jobs:
 
     - uses: ./
       with:
-          test-execution-json: reqnroll.json
-          test-assembly-dll: AutomatedFlow.dll
-          output-html: reqnroll_report.html
+          test-execution-json: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/reqnroll.json
+          test-assembly-dll: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/AutomatedFlow.dll
+          output-html: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/reqnroll_report.html
 
     - name: Copy Test Results to Docs
       run: |
