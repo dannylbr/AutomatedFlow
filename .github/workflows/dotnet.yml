@@ -51,7 +51,7 @@ jobs:
         path: ./TestResults
 
     - name: Generate LivingDoc Report
-      run: dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI && livingdoc test-assembly ./bin/Debug/net8.0/AutomatedFlow.dll -t ./TestResults/test_results.trx -o ./docs
+      run: dotnet test --logger:"json;LogFileName=testExecution.json"
 
     - name: Debug docs content
       run: ls -R ./docs
