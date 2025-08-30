@@ -20,16 +20,14 @@ namespace AutomatedFlow.Features
     [global::NUnit.Framework.TestFixtureAttribute()]
     [global::NUnit.Framework.DescriptionAttribute("Navigation")]
     [global::NUnit.Framework.FixtureLifeCycleAttribute(global::NUnit.Framework.LifeCycle.InstancePerTestCase)]
-    [global::NUnit.Framework.CategoryAttribute("feature:Navigation")]
-    [global::NUnit.Framework.CategoryAttribute("severity:critical")]
+    [global::NUnit.Framework.CategoryAttribute("Navigation")]
     public partial class NavigationFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "feature:Navigation",
-                "severity:critical"};
+                "Navigation"};
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "Navigation", "As a user, \r\nI want to be able to navigate to different pages on the \r\nIntegræ So" +
                 "lutions website so that \r\nI can access the information and features I need.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
@@ -119,7 +117,7 @@ namespace AutomatedFlow.Features
         
         private static global::Io.Cucumber.Messages.Types.Source SourceFunc()
         {
-            return new global::Io.Cucumber.Messages.Types.Source("Features/Navigation.feature", @"@feature:Navigation @severity:critical
+            return new global::Io.Cucumber.Messages.Types.Source("Features/Navigation.feature", @"@Navigation
 Feature: Navigation
 As a user, 
 I want to be able to navigate to different pages on the 
@@ -129,21 +127,26 @@ I can access the information and features I need.
 Background:
 	Given I navigate to Integræ Solutions homepage
 
+@PriorityOne
 Scenario: Visit Homepage
 	Then Elegant text is shown
 
+@PriorityTwo
 Scenario: Access Projects page from the menu
 	When Click on Projects link
 	Then Projects page is shown
 
+@PriorityThree
 Scenario: Access About page from the menu
 	When Click on About link
 	Then About page is shown
-	
+
+@PriorityFour
 Scenario: Access Comments page from the menu
 	When Click on Comments link
 	Then Comments page is shown
 
+@PriorityFive
 Scenario: Access all links in the body
 	Then I click in all the links and they succeed", global::Io.Cucumber.Messages.Types.SourceMediaType.TEXT_X_CUCUMBER_GHERKIN_PLAIN);
         }
@@ -151,75 +154,79 @@ Scenario: Access all links in the body
         private static global::Io.Cucumber.Messages.Types.GherkinDocument GherkinDocumentFunc()
         {
             return new global::Io.Cucumber.Messages.Types.GherkinDocument("Features/Navigation.feature", new global::Io.Cucumber.Messages.Types.Feature(new global::Io.Cucumber.Messages.Types.Location(2, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
-                                new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(1, new System.Nullable<long>(1)), "@feature:Navigation", "c4a38e4a69fcea57a9af0e532842ebe9"),
-                                new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(1, new System.Nullable<long>(21)), "@severity:critical", "b30227ad4fdeeb5cb0c86cfebbf37ae4")}), "en-US", "Feature", "Navigation", "As a user, \r\nI want to be able to navigate to different pages on the \r\nIntegræ So" +
+                                new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(1, new System.Nullable<long>(1)), "@Navigation", "93f789f8c75fc550930c69f62ab7d9fe")}), "en-US", "Feature", "Navigation", "As a user, \r\nI want to be able to navigate to different pages on the \r\nIntegræ So" +
                         "lutions website so that \r\nI can access the information and features I need.", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.FeatureChild>(new global::Io.Cucumber.Messages.Types.FeatureChild[] {
                                 new global::Io.Cucumber.Messages.Types.FeatureChild(null, new global::Io.Cucumber.Messages.Types.Background(new global::Io.Cucumber.Messages.Types.Location(8, new System.Nullable<long>(1)), "Background", "", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(9, new System.Nullable<long>(2)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "I navigate to Integræ Solutions homepage", null, null, "31798f7f8c8ddc57adb8d7bee58c70ba")}), "0134fc5481836256966093745c8564ab"), null),
-                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(11, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[0]), "Scenario", "Visit Homepage", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(12, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "Elegant text is shown", null, null, "9fb797d5e9a04558a97c1f7338302d6f")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "434dff4d276ef25c9f6c7ee3ba7846ad")),
-                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(14, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[0]), "Scenario", "Access Projects page from the menu", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(15, new System.Nullable<long>(2)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "Click on Projects link", null, null, "45e34ff1a816465abde7e69058edfccc"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(16, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "Projects page is shown", null, null, "996bbe3777e910569bdbafa33b9fe520")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "ee923e9810cae056a9eb224cc7423244")),
-                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(18, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[0]), "Scenario", "Access About page from the menu", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(19, new System.Nullable<long>(2)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "Click on About link", null, null, "0f0a670b68982b5fb49cf27cff973f9a"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(20, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "About page is shown", null, null, "1d8f420837cf7653b478bf4ea8c7d569")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "fc30babe59e9cf54a9e9e93d059bb664")),
-                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(22, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[0]), "Scenario", "Access Comments page from the menu", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(23, new System.Nullable<long>(2)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "Click on Comments link", null, null, "1b1549064326e651b397e4966ed609f7"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(24, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "Comments page is shown", null, null, "446f23f480e46353b0c2ecb8c30115e2")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "d4a32be434098b50a8acefc6246b0cbb")),
-                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(26, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[0]), "Scenario", "Access all links in the body", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(27, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "I click in all the links and they succeed", null, null, "992b126173131f5d999c769f1e044b3a")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "1ad6eadef4143d5d867bee52719642c8"))})), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Comment>(new global::Io.Cucumber.Messages.Types.Comment[0]));
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(9, new System.Nullable<long>(2)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "I navigate to Integræ Solutions homepage", null, null, "793b495135eb305394bc2e4b9dea91b2")}), "4ebae408bced845abeaaa80765b02d92"), null),
+                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(12, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(11, new System.Nullable<long>(1)), "@PriorityOne", "a6b417438b0956578a24e5915a729037")}), "Scenario", "Visit Homepage", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(13, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "Elegant text is shown", null, null, "0fb2d85776fc75578524cee71a0d6049")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "6b83ff21a27e4a5ebc365da0a0f06e4b")),
+                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(16, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(15, new System.Nullable<long>(1)), "@PriorityTwo", "692f771e92771257a0f1e3a41774584c")}), "Scenario", "Access Projects page from the menu", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(17, new System.Nullable<long>(2)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "Click on Projects link", null, null, "5fa3d16ccbf8625cb89d060781cc6d6f"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(18, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "Projects page is shown", null, null, "877617fec9fa0b5aad8bae774adb113c")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "4cce6554b4ae7e59b928a05638d07aef")),
+                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(21, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(20, new System.Nullable<long>(1)), "@PriorityThree", "bcecc3afc4f90d58a827b64da8de90e6")}), "Scenario", "Access About page from the menu", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(22, new System.Nullable<long>(2)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "Click on About link", null, null, "2d14bdd3f975c65a8889dc061a1f2c84"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(23, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "About page is shown", null, null, "cafa2023e7d6885492725ebe4f4e7f37")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "aebfe391acdc5b54b987b3ac682a0ace")),
+                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(26, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(25, new System.Nullable<long>(1)), "@PriorityFour", "b43d45eafef8ff568c0e410899ebaba2")}), "Scenario", "Access Comments page from the menu", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(27, new System.Nullable<long>(2)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "Click on Comments link", null, null, "a5612bb1e805c450903d7bf0a0a59a2c"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(28, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "Comments page is shown", null, null, "2f646661acaafe528be802fd8a728175")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "cb1c5c4752f9a854b87066e1773c2ba2")),
+                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(31, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(30, new System.Nullable<long>(1)), "@PriorityFive", "82358fe78f80f8549d471dd17ac3c45c")}), "Scenario", "Access all links in the body", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(32, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "I click in all the links and they succeed", null, null, "dabcfa1c0d78575d81bf5d46e637affc")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "02dfa273ab76a95da02eb71eaed5b1ac"))})), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Comment>(new global::Io.Cucumber.Messages.Types.Comment[0]));
         }
         
         private static global::System.Collections.Generic.IEnumerable<Io.Cucumber.Messages.Types.Pickle> PicklesFunc()
         {
             return new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Pickle>(new global::Io.Cucumber.Messages.Types.Pickle[] {
-                        new global::Io.Cucumber.Messages.Types.Pickle("f2cb8e1dc30df3599dc1c695ab153278", "Features/Navigation.feature", "Visit Homepage", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                        new global::Io.Cucumber.Messages.Types.Pickle("37ffe0c2aed0655db01352ad9bc79473", "Features/Navigation.feature", "Visit Homepage", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "31798f7f8c8ddc57adb8d7bee58c70ba"}), "8defcdc71fa4a25b88bbda5ab5ea06fe", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to Integræ Solutions homepage"),
+                                                        "793b495135eb305394bc2e4b9dea91b2"}), "a733906448eb1359afcf01d6b7d5c3ec", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to Integræ Solutions homepage"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "9fb797d5e9a04558a97c1f7338302d6f"}), "c292e2642b39325a8523aee9e18214cb", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "Elegant text is shown")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@feature:Navigation", "c4a38e4a69fcea57a9af0e532842ebe9"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@severity:critical", "b30227ad4fdeeb5cb0c86cfebbf37ae4")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "434dff4d276ef25c9f6c7ee3ba7846ad"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("121f67b62c4d925c9e29bdb71f619359", "Features/Navigation.feature", "Access Projects page from the menu", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "0fb2d85776fc75578524cee71a0d6049"}), "f148a0cbfdc295518b5a4d7447d5ef14", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "Elegant text is shown")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@Navigation", "93f789f8c75fc550930c69f62ab7d9fe"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@PriorityOne", "a6b417438b0956578a24e5915a729037")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "6b83ff21a27e4a5ebc365da0a0f06e4b"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("54488e97fbbde7519e6cf013038e610e", "Features/Navigation.feature", "Access Projects page from the menu", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "31798f7f8c8ddc57adb8d7bee58c70ba"}), "caa37c8515fbac5e90ccb80d2cb3991c", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to Integræ Solutions homepage"),
+                                                        "793b495135eb305394bc2e4b9dea91b2"}), "97ec08b408a11457a3627693daf220e6", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to Integræ Solutions homepage"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "45e34ff1a816465abde7e69058edfccc"}), "befe0aaa78fd2e5f9006c871a9fffad8", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "Click on Projects link"),
+                                                        "5fa3d16ccbf8625cb89d060781cc6d6f"}), "71e263da7ca7ad55909437e799ebc65a", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "Click on Projects link"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "996bbe3777e910569bdbafa33b9fe520"}), "95a47de520e6de5085d539038484f144", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "Projects page is shown")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@feature:Navigation", "c4a38e4a69fcea57a9af0e532842ebe9"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@severity:critical", "b30227ad4fdeeb5cb0c86cfebbf37ae4")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "ee923e9810cae056a9eb224cc7423244"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("3e56f16507387752a51efd4887d09e93", "Features/Navigation.feature", "Access About page from the menu", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "877617fec9fa0b5aad8bae774adb113c"}), "4b1749380626f55d9f5c6bcfa9fde3cd", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "Projects page is shown")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@Navigation", "93f789f8c75fc550930c69f62ab7d9fe"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@PriorityTwo", "692f771e92771257a0f1e3a41774584c")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "4cce6554b4ae7e59b928a05638d07aef"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("01c20a6fa9787653a0a81747837e136c", "Features/Navigation.feature", "Access About page from the menu", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "31798f7f8c8ddc57adb8d7bee58c70ba"}), "3a6f1ce8647c075ea66a65c874b357ff", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to Integræ Solutions homepage"),
+                                                        "793b495135eb305394bc2e4b9dea91b2"}), "1311820d271a0a5b9561522713da2329", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to Integræ Solutions homepage"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "0f0a670b68982b5fb49cf27cff973f9a"}), "ee1c52a949fa73569f4c4dc9da5459e9", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "Click on About link"),
+                                                        "2d14bdd3f975c65a8889dc061a1f2c84"}), "00a6ea47d28f6c53978d5875386d9058", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "Click on About link"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "1d8f420837cf7653b478bf4ea8c7d569"}), "070f0efae1b5ad5885168b58d62bb0ff", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "About page is shown")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@feature:Navigation", "c4a38e4a69fcea57a9af0e532842ebe9"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@severity:critical", "b30227ad4fdeeb5cb0c86cfebbf37ae4")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "fc30babe59e9cf54a9e9e93d059bb664"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("2493ffbecafd595d8d3cb8b07ba56beb", "Features/Navigation.feature", "Access Comments page from the menu", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "cafa2023e7d6885492725ebe4f4e7f37"}), "b264e7882de58852bf0a6d1558ae68ce", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "About page is shown")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@Navigation", "93f789f8c75fc550930c69f62ab7d9fe"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@PriorityThree", "bcecc3afc4f90d58a827b64da8de90e6")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "aebfe391acdc5b54b987b3ac682a0ace"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("3092e52bf3028754abfe5ef3213472a9", "Features/Navigation.feature", "Access Comments page from the menu", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "31798f7f8c8ddc57adb8d7bee58c70ba"}), "e261a05972b4b75ca83e5c8bcde68868", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to Integræ Solutions homepage"),
+                                                        "793b495135eb305394bc2e4b9dea91b2"}), "fd72be99ccb18d50ae4f2b8bdba33d30", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to Integræ Solutions homepage"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "1b1549064326e651b397e4966ed609f7"}), "b58c3e0b4d14c454aacfeff35d7ed880", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "Click on Comments link"),
+                                                        "a5612bb1e805c450903d7bf0a0a59a2c"}), "d6877a25a8cb3c59aa9727c1588ebfbd", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "Click on Comments link"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "446f23f480e46353b0c2ecb8c30115e2"}), "717b506183d45754b0042457b2ef61af", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "Comments page is shown")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@feature:Navigation", "c4a38e4a69fcea57a9af0e532842ebe9"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@severity:critical", "b30227ad4fdeeb5cb0c86cfebbf37ae4")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "d4a32be434098b50a8acefc6246b0cbb"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("4e3993285e71135e9994a9035d5935b2", "Features/Navigation.feature", "Access all links in the body", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "2f646661acaafe528be802fd8a728175"}), "e14ca28ba585d6548a5fdd505232f377", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "Comments page is shown")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@Navigation", "93f789f8c75fc550930c69f62ab7d9fe"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@PriorityFour", "b43d45eafef8ff568c0e410899ebaba2")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "cb1c5c4752f9a854b87066e1773c2ba2"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("e120de44374dfa58a4577808a576d803", "Features/Navigation.feature", "Access all links in the body", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "31798f7f8c8ddc57adb8d7bee58c70ba"}), "deda0c3c76828257aa4df54e5c0e7f51", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to Integræ Solutions homepage"),
+                                                        "793b495135eb305394bc2e4b9dea91b2"}), "01f8bfea2171d0568a6d4c75d3e0daa7", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to Integræ Solutions homepage"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "992b126173131f5d999c769f1e044b3a"}), "36558685d69b2357a01f232b0771ce8a", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "I click in all the links and they succeed")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@feature:Navigation", "c4a38e4a69fcea57a9af0e532842ebe9"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@severity:critical", "b30227ad4fdeeb5cb0c86cfebbf37ae4")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "1ad6eadef4143d5d867bee52719642c8"}))});
+                                                        "dabcfa1c0d78575d81bf5d46e637affc"}), "ebd8fbd625b35f52a723bb15c0292217", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "I click in all the links and they succeed")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@Navigation", "93f789f8c75fc550930c69f62ab7d9fe"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@PriorityFive", "82358fe78f80f8549d471dd17ac3c45c")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "02dfa273ab76a95da02eb71eaed5b1ac"}))});
         }
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
@@ -229,15 +236,17 @@ Scenario: Access all links in the body
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("Visit Homepage")]
+        [global::NUnit.Framework.CategoryAttribute("PriorityOne")]
         public async global::System.Threading.Tasks.Task VisitHomepage()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "PriorityOne"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "0";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Visit Homepage", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 11
+#line 12
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -250,7 +259,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 8
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 12
+#line 13
  await testRunner.ThenAsync("Elegant text is shown", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -259,15 +268,17 @@ await this.FeatureBackgroundAsync();
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("Access Projects page from the menu")]
+        [global::NUnit.Framework.CategoryAttribute("PriorityTwo")]
         public async global::System.Threading.Tasks.Task AccessProjectsPageFromTheMenu()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "PriorityTwo"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "1";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Access Projects page from the menu", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 14
+#line 16
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -280,10 +291,10 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 8
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 15
+#line 17
  await testRunner.WhenAsync("Click on Projects link", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 16
+#line 18
  await testRunner.ThenAsync("Projects page is shown", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -292,15 +303,17 @@ await this.FeatureBackgroundAsync();
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("Access About page from the menu")]
+        [global::NUnit.Framework.CategoryAttribute("PriorityThree")]
         public async global::System.Threading.Tasks.Task AccessAboutPageFromTheMenu()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "PriorityThree"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "2";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Access About page from the menu", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 18
+#line 21
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -313,10 +326,10 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 8
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 19
+#line 22
  await testRunner.WhenAsync("Click on About link", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 20
+#line 23
  await testRunner.ThenAsync("About page is shown", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -325,45 +338,14 @@ await this.FeatureBackgroundAsync();
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("Access Comments page from the menu")]
+        [global::NUnit.Framework.CategoryAttribute("PriorityFour")]
         public async global::System.Threading.Tasks.Task AccessCommentsPageFromTheMenu()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "PriorityFour"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "3";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Access Comments page from the menu", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
-            string[] tagsOfRule = ((string[])(null));
-            global::Reqnroll.RuleInfo ruleInfo = null;
-#line 22
-this.ScenarioInitialize(scenarioInfo, ruleInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                await testRunner.SkipScenarioAsync();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 8
-await this.FeatureBackgroundAsync();
-#line hidden
-#line 23
- await testRunner.WhenAsync("Click on Comments link", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 24
- await testRunner.ThenAsync("Comments page is shown", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [global::NUnit.Framework.TestAttribute()]
-        [global::NUnit.Framework.DescriptionAttribute("Access all links in the body")]
-        public async global::System.Threading.Tasks.Task AccessAllLinksInTheBody()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "4";
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Access all links in the body", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
 #line 26
@@ -380,6 +362,41 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 await this.FeatureBackgroundAsync();
 #line hidden
 #line 27
+ await testRunner.WhenAsync("Click on Comments link", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 28
+ await testRunner.ThenAsync("Comments page is shown", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [global::NUnit.Framework.TestAttribute()]
+        [global::NUnit.Framework.DescriptionAttribute("Access all links in the body")]
+        [global::NUnit.Framework.CategoryAttribute("PriorityFive")]
+        public async global::System.Threading.Tasks.Task AccessAllLinksInTheBody()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "PriorityFive"};
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            string pickleIndex = "4";
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Access all links in the body", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string[] tagsOfRule = ((string[])(null));
+            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 31
+this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                await testRunner.SkipScenarioAsync();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 8
+await this.FeatureBackgroundAsync();
+#line hidden
+#line 32
  await testRunner.ThenAsync("I click in all the links and they succeed", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
