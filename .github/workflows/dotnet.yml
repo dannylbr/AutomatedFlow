@@ -42,13 +42,14 @@ jobs:
       with:
           test-execution-json: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/reqnroll.json
           test-assembly-dll: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/AutomatedFlow.dll
-          output-html: LivingDoc.html
+          output-html: reqnroll_report.html
 
     - name: Copy Test Results to Docs
       run: |
         mkdir -p docs
         ls -l
-        cp LivingDoc.html docs/index.html
+        cp reqnroll_report.html docs/index.html
+
     - name: Debug - List bin folders
       run: ls -R ./bin/Debug/net8.0 || true
 
