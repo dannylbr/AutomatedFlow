@@ -48,18 +48,13 @@ jobs:
       run: |
         livingdoc feature-folder ./Features \
           --output-type HTML \
-          -t ./bin/Debug/net8.0/TestExecution.json \
+          -t ./TestExecution.json \
           -o ./docs/index.html
 
-    - name: Debug - Show contents of reqnroll.json
+    - name: Debug - Show contents of TestExecution.json
       run: |
-          echo "=== reqnroll.json preview ==="
-          head -n 50 reqnroll.json || echo "reqnroll.json not found"
-
-    - name: Copy Test Results to Docs
-      run: |
-          mkdir -p docs
-          cp reqnroll_report.html docs/index.html
+          echo "=== TestExecution.json preview ==="
+          head -n 50 TestExecution.json || echo "TestExecution.json not found"
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
