@@ -35,23 +35,22 @@ jobs:
     - name: Setup ChromeDriver
       uses: nanasess/setup-chromedriver@v2
 
-    - name: Run Tests
-      run: dotnet test
+    - name: Run Tests with ReqNroll JSON logger
+      run: dotnet test --logger:"json;LogFilePath=reqnroll.json"
+    
+    - name: Debug - List generated files
+      run: ls -l
 
     - uses: ./
       with:
-          test-execution-json: reqnroll.json
-          test-assembly-dll: AutomatedFlow.dll
-          output-html: reqnroll_report.html
+        test-execution-json: ./reqnroll.json
+        test-assembly-dll: /home/runner/work/AutomatedFlow/AutomatedFlow/bin/Debug/net8.0/AutomatedFlow.dll
+        output-html: reqnroll_report.html
 
     - name: Copy Test Results to Docs
       run: |
-        mkdir -p docs
-        ls -l
-        cp reqnroll_report.html docs/index.html
-
-    - name: Debug - List bin folders
-      run: ls -R ./ || true
+          mkdir -p docs
+          cp reqnroll_report.html docs/index.html
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
