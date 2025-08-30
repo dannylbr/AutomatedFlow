@@ -34,21 +34,23 @@ jobs:
     
     - name: Setup ChromeDriver
       uses: nanasess/setup-chromedriver@v2
-
-    - name: Install JSON Test Logger
-      run: dotnet tool install --global Microsoft.TestPlatform.Extensions.JsonLogger
-
-    - name: Run Tests with ReqNroll JSON logger
-      run: dotnet test --logger:"json;LogFilePath=reqnroll.json"
+      
+    - name: Run Tests
+      run: dotnet test
     
     - name: Debug - List generated files
       run: ls -l
 
-    - uses: ./
-      with:
-        test-execution-json: ./reqnroll.json
-        test-assembly-dll: ./bin/Debug/net8.0/AutomatedFlow.dll
-        output-html: reqnroll_report.html
+    - name: Install LivingDoc CLI
+      run: dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+
+    - name: Generate LivingDoc HTML
+      run: |
+        # adjust the TestExecution.json path if needed
+        livingdoc feature-folder ./Features \
+          --output-type HTML \
+          -t ./bin/Debug/net8.0/TestExecution.json \
+          -o ./docs/index.html
 
     - name: Debug - Show contents of reqnroll.json
       run: |
