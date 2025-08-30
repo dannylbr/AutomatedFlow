@@ -48,7 +48,7 @@ jobs:
       run: |
         livingdoc feature-folder ./Features \
           --output-type HTML \
-          -t ./TestExecution.json \
+          -t TestExecution.json \
           -o ./docs/index.html
 
     - name: Debug - Show contents of TestExecution.json
