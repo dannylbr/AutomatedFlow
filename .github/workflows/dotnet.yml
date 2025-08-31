@@ -46,8 +46,7 @@ jobs:
 
     - name: Generate LivingDoc HTML
       run: |
-        livingdoc feature-folder ./Features \
-          --output-type HTML \
+        livingdoc --output-type HTML \
           -t bin/Debug/net8.0/TestExecution.json \
           -o ./docs/index.html
 
