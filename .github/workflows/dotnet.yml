@@ -46,7 +46,7 @@ jobs:
 
     - name: Generate LivingDoc HTML
       run: |
-        livingdoc feature-folder /home/runner/work/AutomatedFlow/Features \
+        livingdoc feature-folder Features \
           --output-type HTML \
           -t bin/Debug/net8.0/TestExecution.json \
           -o ./docs/index.html
